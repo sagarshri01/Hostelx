@@ -201,7 +201,6 @@ app.patch("/api/admin/listings/:id", auth, admin, async (req, res) => {
   res.json({ ok: true });
 });
 
-app.get("*", (_, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
-
+app.get("/{*splat}", (_, res) => res.sendFile(path.join(__dirname, "index.html")));
 initDB().then(() => app.listen(PORT, () => console.log(`HostelX running at http://localhost:${PORT}`)))
   .catch(err => { console.error(err); process.exit(1); });
