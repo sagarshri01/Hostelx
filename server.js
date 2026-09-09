@@ -49,7 +49,7 @@ async function initDB() {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname));
 app.use("/uploads", express.static(uploadDir));
 
 function tokenFor(user) {
